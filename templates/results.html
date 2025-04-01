@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analiz Sonuçları</title>
+    <style>
+        table { border-collapse: collapse; width: 50%; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+    </style>
+</head>
+<body>
+    <h1>Analiz Sonuçları</h1>
+    <h3>Tonalite: {{ results.key }}</h3>
+    
+    <h3>Akor Analizi</h3>
+    <table>
+        <tr><th>Ölçü</th><th>Akor</th><th>Roman Rakamı</th></tr>
+        {% for chord in results.chords %}
+        <tr>
+            <td>{{ chord.measure }}</td>
+            <td>{{ chord.chord }}</td>
+            <td>{{ chord.roman }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    <h3>Kadans Analizi</h3>
+    <table>
+        <tr><th>Ölçü</th><th>Tür</th><th>Progresyon</th></tr>
+        {% for cadence in results.cadences %}
+        <tr>
+            <td>{{ cadence.measure }}</td>
+            <td>{{ cadence.type }}</td>
+            <td>{{ cadence.progression }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    <a href="/">Başka bir dosya yükle</a>
+</body>
+</html>
